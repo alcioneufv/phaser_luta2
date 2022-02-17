@@ -18,7 +18,9 @@ var lutB;
 var chao = 277;
 var cont = 0;
 var actionsA = ['idleA', 'kickA', 'punchA', 'lowpunchA', 'blockA', 'mortalA' ];
+var golpesA = ['kickA', 'punchA', 'lowpunchA', 'blockA', 'mortalA' ];
 var statesA = ['aliveA','fall1A','fall2A', 'dyingA','deadA']
+var stateFragil=['idle','left','right']
 var valorVidaA = 100;
 var valorVidaB = 100;
 var vidaA, vidaB;
@@ -121,16 +123,28 @@ function create () {
         frames: this.anims.generateFrameNumbers('lutadorB', { start: 4, end: 10 }),
         frameRate: 20});
     
+     this.anims.create({ key: 'fall',
+        frames: this.anims.generateFrameNumbers('lutadorB', { start: 30, end: 39 }),
+        frameRate: 5});
+
+    
     lutB.anims.play('idle', true);
     
     this.physics.add.collider(lutA, plataformas);
     this.physics.add.collider(lutB, plataformas);
 
     var collider = this.physics.add.collider(lutA, lutB, function (lutA, lutB) {
-        if (lutB.anims.currentAnim.key == 'kick') {     
+        if (lutB.anims.currentAnim.key == 'kick' && lutA.anims.currentAnim.key== 'idleA') {     
            lutA.anims.play('fall1A', true);
            ah.play(); 
         }
+        
+        // Lutador A acerta um golpe no lutador B 
+        if (stateFragil.indexOf(lutB.anims.currentAnim.key)>-1   && golpesA.indexOf(lutA.anims.currentAnim.key) >-1 {     
+           lutB.anims.play('fall', true);
+           ah.play(); 
+        }
+        
         lutB.x-=5;
         }, null, this);
 }
