@@ -25,11 +25,12 @@ var vidaA, vidaB;
 var chute;
 
 function preload () {
-    this.load.spritesheet('lutadorA', './assets/karatea.png', { frameWidth: 75, frameHeight: 75 });
-    this.load.spritesheet('lutadorB', './assets/karateb.png', { frameWidth: 75, frameHeight: 75 });
-    this.load.image('fundo', './assets/fundonoite.png');
-    this.load.image('plata', './assets/plataforma.png');
+    this.load.spritesheet('lutadorA', 'assets/karatea.png', { frameWidth: 75, frameHeight: 75 });
+    this.load.spritesheet('lutadorB', 'assets/karateb.png', { frameWidth: 75, frameHeight: 75 });
+    this.load.image('fundo', 'assets/fundonoite.png');
+    this.load.image('plata', 'assets/plataforma.png');
     this.load.audio('chute', ['assets/chute.ogg']);
+    this.load.audio('ah', ['assets/ah.ogg']);
 }
 
 function create () {
@@ -91,7 +92,6 @@ function create () {
         frames: this.anims.generateFrameNumbers('lutadorA', { start: 23, end: 23 }),
         frameRate: 10});
 
- 
     lutA.anims.play('idleA', true);
 
     //*******************
