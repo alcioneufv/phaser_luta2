@@ -38,8 +38,8 @@ function create () {
     
     cursors = this.input.keyboard.createCursorKeys();
     
-    chute = this.sound.add('chute', {volume: 0.2,loop: false});
-    ah = this.sound.add('ah', {volume: 0.2,loop: false});
+    chute = this.sound.add('chute', {volume: 0.1,loop: false});
+    ah = this.sound.add('ah', {volume: 0.5,loop: false});
 
     this.sound.once('unlocked', () => {});
 
