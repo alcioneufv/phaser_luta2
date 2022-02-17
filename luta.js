@@ -23,6 +23,7 @@ var valorVidaA = 100;
 var valorVidaB = 100;
 var vidaA, vidaB;
 var chute;
+var ah;
 
 function preload () {
     this.load.spritesheet('lutadorA', 'assets/karatea.png', { frameWidth: 75, frameHeight: 75 });
@@ -38,6 +39,8 @@ function create () {
     cursors = this.input.keyboard.createCursorKeys();
     
     chute = this.sound.add('chute', {volume: 0.2,loop: false});
+    ah = this.sound.add('ah', {volume: 0.2,loop: false});
+
     this.sound.once('unlocked', () => {});
 
     this.add.image(0, 0, 'fundo').setOrigin(0, 0);
@@ -126,7 +129,7 @@ function create () {
     var collider = this.physics.add.collider(lutA, lutB, function (lutA, lutB) {
         if (lutB.anims.currentAnim.key == 'kick') {     
            lutA.anims.play('fall1A', true);
-            
+           ah.play(); 
         }
         lutB.x-=5;
         }, null, this);
