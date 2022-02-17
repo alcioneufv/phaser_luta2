@@ -164,6 +164,7 @@ function update (){
         if (lutB.anims.getProgress()==1) {
             lutB.anims.play('idle', true);
         }
+        else return;
     }
 
     lutB.setVelocity(0);
