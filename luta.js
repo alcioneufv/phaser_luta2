@@ -25,10 +25,10 @@ var vidaA, vidaB;
 var particles;
 
 function preload () {
-    this.load.spritesheet('lutadorA', 'karatea.png', { frameWidth: 75, frameHeight: 75 });
-    this.load.spritesheet('lutadorB', 'karateb.png', { frameWidth: 75, frameHeight: 75 });
-    this.load.image('fundo', 'fundonoite.png');
-    this.load.image('plata', 'plataforma.png');
+    this.load.spritesheet('lutadorA', './assets/karatea.png', { frameWidth: 75, frameHeight: 75 });
+    this.load.spritesheet('lutadorB', './assets/karateb.png', { frameWidth: 75, frameHeight: 75 });
+    this.load.image('fundo', './assets/fundonoite.png');
+    this.load.image('plata', './assets/plataforma.png');
 }
 
 function create () {
