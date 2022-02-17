@@ -159,5 +159,6 @@ function update (){
     else if (cursors.up.isDown)    {
         lutB.x+=2;
         lutB.anims.play('kick', true);
+        chute.play();
     }
 }
