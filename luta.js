@@ -22,7 +22,7 @@ var statesA = ['aliveA','fall1A','fall2A', 'dyingA','deadA']
 var valorVidaA = 100;
 var valorVidaB = 100;
 var vidaA, vidaB;
-var particles;
+var chute;
 
 function preload () {
     this.load.spritesheet('lutadorA', './assets/karatea.png', { frameWidth: 75, frameHeight: 75 });
@@ -36,10 +36,10 @@ function create () {
     
     cursors = this.input.keyboard.createCursorKeys();
     
-    this.chute = this.sound.add('chute', {volume: 0.2,loop: false});
-    if (!this.sound.locked)	{this.chute.play()}
+    chute = this.sound.add('chute', {volume: 0.2,loop: false});
+    if (!this.sound.locked)	{chute.play()}
 	else {this.sound.once('unlocked', () => {
-			this.chute.play()
+			chute.play()
 		})
 	}
 
@@ -164,7 +164,7 @@ function update (){
     }
     else if (cursors.up.isDown)    {
         lutB.x+=2;
-        this.chute.play();
+        chute.play();
         lutB.anims.play('kick', true);
     }
 }
