@@ -36,10 +36,10 @@ function create () {
     
     cursors = this.input.keyboard.createCursorKeys();
     
-    var chute = this.sound.add('chute', {volume: 0.2,loop: false});
-    if (!this.sound.locked)	{chute.play()}
+    this.chute = this.sound.add('chute', {volume: 0.2,loop: false});
+    if (!this.sound.locked)	{this.chute.play()}
 	else {this.sound.once('unlocked', () => {
-			chute.play()
+			this.chute.play()
 		})
 	}
 
@@ -164,7 +164,7 @@ function update (){
     }
     else if (cursors.up.isDown)    {
         lutB.x+=2;
-        chute.play();
+        this.chute.play();
         lutB.anims.play('kick', true);
     }
 }
