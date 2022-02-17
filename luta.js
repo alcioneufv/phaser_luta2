@@ -35,7 +35,13 @@ function preload () {
 function create () {
     
     cursors = this.input.keyboard.createCursorKeys();
-    var chute = this.sound.add('chute');
+    
+    var chute = this.sound.add('chute', {volume: 0.2,loop: false});
+    if (!this.sound.locked)	{chute.play()}
+	else {this.sound.once(Phaser.Sound.Events.UNLOCKED, () => {
+			chute.play()
+		})
+	}
 
     this.add.image(0, 0, 'fundo').setOrigin(0, 0);
     
