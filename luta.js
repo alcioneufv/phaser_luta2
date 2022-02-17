@@ -38,7 +38,7 @@ function create () {
     
     var chute = this.sound.add('chute', {volume: 0.2,loop: false});
     if (!this.sound.locked)	{chute.play()}
-	else {this.sound.once(Phaser.Sound.Events.UNLOCKED, () => {
+	else {this.sound.once('unlocked', () => {
 			chute.play()
 		})
 	}
