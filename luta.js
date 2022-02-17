@@ -29,11 +29,13 @@ function preload () {
     this.load.spritesheet('lutadorB', './assets/karateb.png', { frameWidth: 75, frameHeight: 75 });
     this.load.image('fundo', './assets/fundonoite.png');
     this.load.image('plata', './assets/plataforma.png');
+    this.load.audio('chute', ['assets/audio/tech/chute.ogg']);
 }
 
 function create () {
     
     cursors = this.input.keyboard.createCursorKeys();
+    var chute = this.sound.add('chute');
 
     this.add.image(0, 0, 'fundo').setOrigin(0, 0);
     
