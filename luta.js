@@ -137,13 +137,13 @@ function create () {
         if (lutB.anims.currentAnim.key == 'kick' && lutA.anims.currentAnim.key== 'idleA') {     
            lutA.anims.play('fall1A', true);
            ah.play(); 
-        }
+        };
         
         // Lutador A acerta um golpe no lutador B 
-        if (stateFragil.indexOf(lutB.anims.currentAnim.key)>-1   && golpesA.indexOf(lutA.anims.currentAnim.key) >-1 {     
+        if (stateFragil.indexOf(lutB.anims.currentAnim.key)>-1   && golpesA.indexOf(lutA.anims.currentAnim.key) >-1) {     
            lutB.anims.play('fall', true);
            ah.play(); 
-        }
+        };
         
         lutB.x-=5;
         }, null, this);
